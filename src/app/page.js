@@ -34,7 +34,7 @@ export default function Home() {
           <div className="text-4xl text-black text-center font-medium">INVESTING AT YOUR FINGERTIPS</div>
         </div>
         <div className="text-black text-center my-3.5 text-2xl font-medium">
-          <div>Seemlessly connect with mutual fund</div>
+          <div>Seamlessly connect with mutual fund</div>
           <div>Distributors,exploring top-performing</div>
           <div>funds,and track your investments-all</div>
           <div>in one place.</div>
