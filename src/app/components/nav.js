@@ -32,19 +32,11 @@ export default function Nav() {
           <div className="space-x-4 flex">
             <div>
               <button
-                className="text-white border-0 rounded-lg w-22 h-9 text-center text-lg"
+                className="text-white border-0 rounded-lg px-5 py-1 text-center text-lg"
                 style={{ backgroundColor: "#384347" }}
-              >
-                Login
-              </button>
-            </div>
-            <div>
-              <button
-                className="border-0 rounded-lg w-22 h-9 text-center text-lg"
-                style={{ backgroundColor: "#7ED1ED" }}
                 onClick={toggleSignupModal}
               >
-                Sign up
+                Login / Register
               </button>
             </div>
           </div>
