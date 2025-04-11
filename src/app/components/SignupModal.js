@@ -42,7 +42,7 @@ export default function SignupModal({ showSignup, onClose }) {
               style={{ cursor: "pointer" }}
             >
               <Image
-                src="/google-Symbol.png"
+                src="/Google-Symbol.png"
                 alt="Google Icon"
                 width={20}
                 height={20}
