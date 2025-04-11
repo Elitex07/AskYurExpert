@@ -9,9 +9,6 @@ export default function Page() {
             footer: {
               display: 'none',
             },
-            headerTitle: {
-              text: "Welcome to AskYurExpert",
-            }
           },
           layout: {
             socialButtonsPlacement: 'top',
