@@ -6,9 +6,18 @@ export const metadata = {
   description: "A Mutual Fund Distributor PLatform",
 };
 
+const localization = {
+  signIn: {
+    start: {
+      titleCombined: "Welcome to AskYurExpert",
+      subtitleCombined: "Please sign in to continue",
+    }
+  }
+}
+
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider localization={localization}>
     <html lang="en">
       <body>
         {children}

@@ -34,10 +34,8 @@ export default function SignupModal({ showSignup, onClose }) {
                   footer: {
                     display: "none",
                   },
-                  headerTitle: {
-                    text: "Welcome to AskYurExpert",
-                  },
                 },
+                
                 layout: {
                   socialButtonsPlacement: "top",
                   socialButtonsVariant: "blockButton",
