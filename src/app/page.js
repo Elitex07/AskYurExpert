@@ -140,7 +140,7 @@ export default function Home() {
             <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" className="w-140 h-100"></img>
           </div>
         </div>
-        <div className="flex mt-5 mb-30 gap-x-20">
+        <div className="flex mt-5 mb-50 gap-x-20">
           <div className="w-[50%] h-auto ml-12">
 
             <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold">How it works?</h1>
@@ -164,9 +164,7 @@ export default function Home() {
           </div>
 
         </div>
-        <div className="">
-          <img src="/images/askexpert.jpeg" className="w-full h-100"></img>
-        </div>
+        
 
 
       </main>
