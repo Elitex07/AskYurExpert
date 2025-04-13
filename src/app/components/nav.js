@@ -35,7 +35,7 @@ export default function Nav() {
               <div>
                 <button
                   className="text-white border-0 rounded-lg px-5 py-1 text-center text-lg"
-                  style={{ backgroundColor: "#384347" }}
+                  style={{ backgroundColor: "#2614EF" }}
                   onClick={toggleSignupModal}
                 >
                   Login / Register
