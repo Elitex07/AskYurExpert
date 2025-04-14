@@ -54,7 +54,7 @@ export default function Home() {
           <div className="text-center font-bold text-3xl mb-20">
             Why Choose ASKYUREXPERT?
           </div>
-          <div className="md:flex justify-center gap-x-20 my-10 flex-wrap space-y-6">
+          <div className="md:flex justify-center gap-x-20 my-10 flex-wrap space-y-6 sm:justify-items-center">
             <div className="w-auto h-30 bg-gray-200 rounded-2xl place-content-center">
               <h1 className="text-lg font-bold text-center">Direct Access to Distributors</h1>
               <p className="text-center">Get expert guidance from</p>
@@ -121,7 +121,7 @@ export default function Home() {
 
           </div>
           <div className="w-[50%] h-auto">
-            <img src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" className="w-145 h-120 ml-10 mt-2"></img>
+            <img src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" className="md:w-145 md:h-120 ml-10 mt-10 sm:w-[50%] sm:h-130 w-150 h-140"></img>
           </div>
         </div>
         <div className="flex gap-x-30 mt-10 mb-5">
@@ -137,7 +137,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-[50%] justify-end h-auto">
-            <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" className="w-140 h-100"></img>
+            <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" alt="Students grabbing attention" className="md:w-140 md:h-100 sm:w-160 sm:h-120 w-350 h-120"></img>
           </div>
         </div>
         <div className="flex mt-5 mb-50 gap-x-20">
@@ -172,11 +172,11 @@ export default function Home() {
       <footer style={{ backgroundColor: "#7ED1ED" }} className="w-full h-auto">
 
         {/* <div className="w-full h-[86px] bg-blue-300"></div> */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 gap-x-12 text-zinc-800">
-          <div className="lg:col-span-5 ml-6">
+        <div className="grid grid-cols-2 sm:gap-4">
+          <div className="space-y-6">
             <div style={{ fontFamily: '"Crimson Text"' }}
               className="text-2xl text-zinc-800 font-bold">ASKYUREXPERT</div>
-            <div className="text-sm text-wzinc-800 font-extralight my-2">
+            <div className="text-sm text-zinc-800 font-extralight my-2">
               <p>Copyright © 2025 ValuePlus Technologies Pvt. Ltd. All Rights Reserved</p>
               <p>AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered</p>
               <p>distributor of Mutual Funds (ARN-114376)</p>
@@ -187,7 +187,7 @@ export default function Home() {
               <p>indicative of future performance</p>
             </div>
           </div>
-          <div className="lg:col-span-7 flex flex-col sm:flex-row justify-between lg:justify-end gap-y-10 gap-x-20 mr-6">
+          <div className="grid grid-cols-3 md:gap-10 sm:gap-7 lg:gap-15 ">
             <div className="space-y-1">
               <div className="text-zinc-800">Legal</div>
               <div className="text-blue-700 cursor-pointer">Privacy Policy</div>
