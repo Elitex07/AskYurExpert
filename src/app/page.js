@@ -130,7 +130,7 @@ export default function Home() {
             <div className="mt-7 space-y-1">
               <p className="text-lg">Askyurexpert is a dynamic online platform designed to connect you with a diverse network of verified experts across various industries and disciplines.Whether 
                </p>
-                <p className="text-lg"> you're facing a complex technical issue,seeking professional advice, or need</p>
+                <p className="text-lg"> you are facing a complex technical issue,seeking professional advice, or need</p>
                 
               <p className="text-lg">guidance on a specific project,Askyurexpert provides a seamless and </p>
               <p className="text-lg">efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.</p>
