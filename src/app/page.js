@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Nav from "./components/nav";
 import SignupModal from "./components/SignupModal";
-import Image from 'next/image';
+
 
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
@@ -26,7 +26,7 @@ export default function Home() {
             INVESTING AT YOUR FINGERTIPS
           </div>
         </div>
-        <div className="text-zinc-800 text-center my-7 text-2xl font-normal">
+        <div className="text-zinc-900 text-center my-7 text-2xl font-normal">
           <div>Seamlessly connect with mutual fund</div>
           <div>Distributors, exploring top-performing</div>
           <div>funds, and track your investments-all</div>
@@ -111,13 +111,25 @@ export default function Home() {
             <div className="space-y-3 mt-15">
 
               <div className="space-y-1">
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>1. Certified Investment Experts</h1>
+                <div className="flex">
+              <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+              <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Certified Investment Experts</h1>
+                </div>
                 <p className="text-lg text-zinc-800">Work with professionals who are qualified and experienced in mutual fund advisory.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>2. Personalized, Goal-Based Planning</h1>
+                <div className="flex">
+                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Personalized, Goal-Based Planning</h1>
+                </div>
                 <p className="text-lg text-zinc-800">We tailor your investment strategy around your unique financial goals and life aspirations.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>3. 100% Paperless Process</h1>
+               <div className="flex">
+               <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>100% Paperless Process</h1>
+                </div>
                 <p className="text-lg text-zinc-800">Enjoy a seamless and eco-friendly experience with fully digital investments.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>4. Real-Time Online Tracking</h1>
+                <div className="flex">
+                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF"}}>Real-Time Online Tracking</h1>
+               </div>
                 <p className="text-lg text-zinc-800">Stay in control with transparent, anytime access to your investment performance.</p>
               </div>
             </div>

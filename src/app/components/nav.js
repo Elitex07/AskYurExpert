@@ -15,7 +15,7 @@ export default function Nav() {
         <div className="space-x-10 flex ml-4">
           <span
             style={{ fontFamily: '"CrimsonText"' }}
-            className="text-2xl font-bold"
+            className="lg:text-2xl font-bold md:text-3xl sm:text-4xl max-sm:text-4xl"
           >
             ASKYUREXPERT
           </span>
@@ -33,7 +33,7 @@ export default function Nav() {
 
           <SignedOut>
             <div className="space-x-4 flex">
-              <div className="hidden sm:block">
+              <div className="hidden md:block">
                 <button
                   className="text-white border-0 rounded-lg px-5 py-1 text-center text-lg"
                   style={{ backgroundColor: "#2614EF" }}
@@ -65,6 +65,9 @@ export default function Nav() {
 
           <div className="hidden lg:block">
             <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#212529"><path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z"/></svg>
+          </div>
+          <div className="md:hidden lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="45px" viewBox="0 -960 960 960" width="45px" fill="#212529"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
           </div>
         </div>
       </nav>
