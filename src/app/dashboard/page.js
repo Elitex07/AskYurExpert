@@ -1,9 +1,14 @@
-'use client';
 import Nav from "../components/nav";
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
+import { currentUser } from '@clerk/nextjs/server';
+import Cus from "../classes/customer";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const user = await currentUser();
+  
+  let userFromDb = new Cus(user);
+
   return (
     <div className="flex">
       <Sidebar />
