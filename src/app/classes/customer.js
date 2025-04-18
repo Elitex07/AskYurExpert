@@ -5,16 +5,13 @@ class Cus {
         this.clerkId = clerkUser.id;
         this.email = clerkUser.emailAddresses[0].emailAddress;
         this.name = clerkUser.fullName || clerkUser.primaryEmailAddress.emailAddress;
+        this._rawData = null;
+    }
 
-        (
-            async () => {
-                this._rawData = await this.get(this.clerkId);
-                console.log(this._rawData);
-                if(this._rawData == null) {
-                    this._rawData = await this.create(this.clerkId, this.email, this.name);
-                }
-            }
-        )();
+    async init() {
+        this._rawData = await this.get(this.clerkId);
+        if(!this._rawData) await this.create(this.clerkId, this.email, this.name);
+        return this;
     }
 
     async get(clerkId) {
