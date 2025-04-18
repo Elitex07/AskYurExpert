@@ -9,6 +9,7 @@ class Cus {
         (
             async () => {
                 this._rawData = await this.get(this.clerkId);
+                console.log(this._rawData);
                 if(!this._rawData) {
                     this._rawData = await this.create(this.clerkId, this.email, this.name);
                 }
