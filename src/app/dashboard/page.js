@@ -8,7 +8,7 @@ export default async function Dashboard() {
   const user = await currentUser();
   
   let userFromDb = new Cus(user);
-  userFromDb.init();
+  await userFromDb.init();
 
   return (
     <div className="flex">
