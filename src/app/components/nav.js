@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 import SignupModal from "./SignupModal";
 import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
