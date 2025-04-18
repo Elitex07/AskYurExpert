@@ -6,10 +6,14 @@ class Cus {
         this.email = clerkUser.emailAddresses[0].emailAddress;
         this.name = clerkUser.fullName || clerkUser.primaryEmailAddress.emailAddress;
 
-        this._rawData = this.get(this.clerkId);
-        if(!this._rawData) {
-            this._rawData = this.create(this.clerkId, this.email, this.name);
-        }
+        (
+            async () => {
+                this._rawData = await this.get(this.clerkId);
+                if(!this._rawData) {
+                    this._rawData = await this.create(this.clerkId, this.email, this.name);
+                }
+            }
+        )();
     }
 
     async get(clerkId) {
