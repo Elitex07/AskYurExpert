@@ -1,3 +1,3 @@
 export const Configs = {
-    API_URL: "http://localhost:3001/api"
+    API_URL: "https://askurexpert-dev-api.vercel.app/api"
 }
