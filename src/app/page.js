@@ -3,6 +3,7 @@ import { useState } from "react";
 import Nav from "./components/nav";
 import SignupModal from "./components/SignupModal";
 
+
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
 
@@ -25,7 +26,7 @@ export default function Home() {
             INVESTING AT YOUR FINGERTIPS
           </div>
         </div>
-        <div className="text-black text-center my-7 text-2xl font-normal">
+        <div className="text-zinc-900 text-center my-7 text-2xl font-normal">
           <div>Seamlessly connect with mutual fund</div>
           <div>Distributors, exploring top-performing</div>
           <div>funds, and track your investments-all</div>
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="text-center font-bold text-3xl mb-20">
             Why Choose ASKYUREXPERT?
           </div>
-          <div className="md:flex justify-center gap-x-20 my-10 flex-wrap space-y-6">
+          <div className="md:flex justify-center gap-x-20 my-10 flex-wrap space-y-6 sm:justify-items-center">
             <div className="w-auto h-30 bg-gray-200 rounded-2xl place-content-center">
               <h1 className="text-lg font-bold text-center">Direct Access to Distributors</h1>
               <p className="text-center">Get expert guidance from</p>
@@ -95,76 +96,90 @@ export default function Home() {
             <p className="text-center">Rated 4.7+ on Playstore and</p>
             <p className="text-center">Appstore</p></div>
         </div>
-        <div className="flex space-x-25 mt-40 mb-40">
-          <div className="w-[50%] h-auto space-y-8 ml-12">
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold">Build Wealth the Smart Way with Mutual Funds</h1>
-            <div className="mt-5 justify-center">
-              <p className="text-lg text-zinc-800">True wealth creation doesn’t happen overnight—it’s the result of careful</p>
-              <p className="text-lg text-zinc-800">planning,emotional discipline,and consistent execution.At Askyourexpert,</p>
-              <p className="text-lg text-zinc-800">you every step of the way,helping you turn your financial dreams into reality.</p>
+        <div className="md:flex lg:flex sm:flex space-x-25 mt-40 mb-40">
+          <div className="max-w-[50%] h-auto space-y-8 ml-12 max-sm:max-w-[100%] max-sm:justify-items-center">
 
-             
+
+            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold max-sm:text-center">Build Wealth the Smart Way with Mutual Funds</h1>
+            <div className="mt-5">
+              <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>True wealth creation doesn’t happen overnight—it’s the result of careful planning, emotional discipline, and consistent execution.At Askyourexpert,you every step of the way,helping you turn your financial dreams into reality.</p>
+              {/* <p className="text-lg text-zinc-800">planning,emotional discipline,and consistent execution.At Askyourexpert,</p>
+              <p className="text-lg text-zinc-800">you every step of the way,helping you turn your financial dreams into reality.</p> */}
+
+
             </div>
-            <div className="space-y-3 mt-15">
+            <div className="space-y-3 mt-25">
 
               <div className="space-y-1">
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>1. Certified Investment Experts</h1>
-                <p className="text-lg text-zinc-800">Work with professionals who are qualified and experienced in mutual fund advisory.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>2. Personalized, Goal-Based Planning</h1>
-                <p className="text-lg text-zinc-800">We tailor your investment strategy around your unique financial goals and life aspirations.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>3. 100% Paperless Process</h1>
-                <p className="text-lg text-zinc-800">Enjoy a seamless and eco-friendly experience with fully digital investments.</p>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText" }}>4. Real-Time Online Tracking</h1>
-                <p className="text-lg text-zinc-800">Stay in control with transparent, anytime access to your investment performance.</p>
+                <div className="flex">
+              <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+              <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Certified Investment Experts</h1>
+                </div>
+                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Work with professionals who are qualified and experienced in mutual fund advisory.</p>
+                <div className="flex">
+                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Personalized, Goal-Based Planning</h1>
+                </div>
+                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>We tailor your investment strategy around your unique financial goals and life aspirations.</p>
+               <div className="flex">
+               <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>100% Paperless Process</h1>
+                </div>
+                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Enjoy a seamless and eco-friendly experience with fully digital investments.</p>
+                <div className="flex">
+                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF"}}>Real-Time Online Tracking</h1>
+               </div>
+                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Stay in control with transparent, anytime access to your investment performance.</p>
               </div>
             </div>
 
           </div>
           <div className="w-[50%] h-auto">
-            <img src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" className="w-145 h-120 ml-10 mt-2"></img>
+            <img src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" className="md:w-150 md:h-130 ml-10 mt-10 sm:w-140 sm:h-120 lg:w-160 lg:h-150 max-sm:hidden"></img>
           </div>
         </div>
-        <div className="flex gap-x-30 mt-10 mb-5">
-          <div className="w-[50%] h-auto ml-12">
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold">What is ASKYUREXPERT?</h1>
-            <div className="mt-7 space-y-1">
-              <p className="text-lg">Askyurexpert is a dynamic online platform designed to connect you with a diverse network of verified experts across various industries and disciplines.Whether 
-               </p>
-                <p className="text-lg"> you're facing a complex technical issue,seeking professional advice, or need</p>
-                
-              <p className="text-lg">guidance on a specific project,Askyurexpert provides a seamless and </p>
-              <p className="text-lg">efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.</p>
+        <div className="md:flex lg:flex sm:flex gap-x-30 mt-10 mb-5">
+          <div className="max-w-[50%] h-auto ml-12 max-sm:max-w-[100%]">
+            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">What is ASKYUREXPERT?</h1>
+            <div style={{textAlign:"justify"}} className="mt-7 space-y-1">
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Askyurexpert is a dynamic online platform designed to connect you with a diverse network of verified experts across various industries and disciplines.Whether you are facing a complex technical issue,seeking professional advice, or need guidance on a specific project,Askyurexpert provides a seamless and efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.
+              </p>
+              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800">Whether you are facing a complex technical issue,seeking professional advice, or need</p>
+
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800">guidance on a specific project,Askyurexpert provides a seamless and </p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800">efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.</p> */}
             </div>
           </div>
           <div className="w-[50%] justify-end h-auto">
-            <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" className="w-140 h-100"></img>
+            <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" className="md:w-140 md:h-100 sm:w-140 sm:h-120 lg:w-160 lg:h-140 max-sm:hidden"></img>
           </div>
         </div>
-        <div className="flex mt-5 mb-50 gap-x-20">
-          <div className="w-[50%] h-auto ml-12">
+        <div className="md:flex lg:flex sm:flex mt-5 mb-50 gap-x-20">
+          <div className="max-w-[50%] h-auto ml-12 max-sm:max-w-[100%]" style={{textAlign:"justify"}}>
 
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold">How it works?</h1>
+            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">How it works?</h1>
             <div className="mt-7 mb-10 space-y-2">
-              <p className="text-lg">Clearly and concisely describe your query. Provide relevant details to</p>
-              <p className="text-lg">help experts understand your needs.</p>
-              <p className="text-lg">Your question is routed to relevant experts within our network.</p>
-              <p className="text-lg">Review the responses and choose the insights that best address your question.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Clearly and concisely describe your query.Provide relevant details to help experts understand your needs.Your question is routed to relevant experts within our network.Review the responses and choose the insights that best address your question.</p>
+              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800"> Provide relevant details to help experts understand your needs.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Your question is routed to relevant experts within our network.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Review the responses and choose the insights that best address your question.</p> */}
             </div>
           </div>
 
-          <div>
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold">Key Features & Benefits</h1>
+          <div className="max-w-[50%] max-sm:max-w-[100%] h-auto ml-12">
+            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">Key Features & Benefits</h1>
             <div className="mt-7 mb-10 space-y-2">
-              <p className="text-lg">Connect with professionals from various fields, ensuring you find</p>
-              <p className="text-lg">the right expertise for your specific needs.</p>
-              <p className="text-lg">Get tailored answers directly relevant to your challenges, eliminating irrelevant information.</p>
-              <p className="text-lg">Stop sifting through countless articles and forums.Get direct answers quickly and efficiently.</p>
-              <p className="text-lg">Benefit from the practical experience and in-depth knowledge of seasoned professionals.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Connect with professionals from various fields, ensuring you find the right expertise for your specific needs.Get tailored answers directly relevant to your challenges, eliminating irrelevant information.Stop sifting through countless articles and forums.Get direct answers quickly and efficiently.Benefit from the practical experience and in-depth knowledge of seasoned professionals.</p>
+              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>the right expertise for your specific needs.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Get tailored answers directly relevant to your challenges, eliminating irrelevant information.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Stop sifting through countless articles and forums.Get direct answers quickly and efficiently.</p>
+              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Benefit from the practical experience and in-depth knowledge of seasoned professionals.</p> */}
             </div>
           </div>
 
         </div>
-        
+
 
 
       </main>
@@ -172,22 +187,22 @@ export default function Home() {
       <footer style={{ backgroundColor: "#7ED1ED" }} className="w-full h-auto">
 
         {/* <div className="w-full h-[86px] bg-blue-300"></div> */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 gap-x-12 text-zinc-800">
-          <div className="lg:col-span-5 ml-6">
+        <div className="sm:grid sm:grid-cols-2 sm:gap-4 flex flex-col">
+          <div className="space-y-6 sm:order-1 order-2 ml-5 mt-2">
             <div style={{ fontFamily: '"Crimson Text"' }}
               className="text-2xl text-zinc-800 font-bold">ASKYUREXPERT</div>
-            <div className="text-sm text-wzinc-800 font-extralight my-2">
-              <p>Copyright © 2025 ValuePlus Technologies Pvt. Ltd. All Rights Reserved</p>
-              <p>AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered</p>
-              <p>distributor of Mutual Funds (ARN-114376)</p>
+            <div className="text-sm text-zinc-800 font-extralight my-2">
+              <p style={{textAlign:"justify"}}>Copyright © 2025 ValuePlus Technologies Pvt. Ltd. All Rights Reserved AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered distributor of Mutual Funds (ARN-114376)</p>
+              {/* <p>AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered</p>
+              <p>distributor of Mutual Funds (ARN-114376)</p> */}
             </div>
             <div className="text-sm text-zinc-800 font-extralight my-5">
-              <p>Mutual Fund investments are subject to market risks, read all scheme</p>
-              <p>related documents carefully before investing. Past performance is not</p>
-              <p>indicative of future performance</p>
+              <p style={{textAlign:"justify"}}>Mutual Fund investments are subject to market risks, read all scheme related documents carefully before investing.Past performance is not indicative of future performance</p>
+              {/* <p>related documents carefully before investing. Past performance is not</p>
+              <p>indicative of future performance</p> */}
             </div>
           </div>
-          <div className="lg:col-span-7 flex flex-col sm:flex-row justify-between lg:justify-end gap-y-10 gap-x-20 mr-6">
+          <div className="order-1 sm:order-2 grid grid-cols-3 mb-5 mt-2 ml-5 sm:grid-cols-3 md:gap-10 sm:gap-7 lg:gap-15 sm:space-y-2">
             <div className="space-y-1">
               <div className="text-zinc-800">Legal</div>
               <div className="text-blue-700 cursor-pointer">Privacy Policy</div>
