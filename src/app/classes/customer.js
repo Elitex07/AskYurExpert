@@ -1,4 +1,4 @@
-import { Configs } from "@/constants";
+import { Configs } from "../../constants";
 
 class Cus {
     constructor(clerkUser) {
