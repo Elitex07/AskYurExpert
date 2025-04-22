@@ -14,64 +14,64 @@ export default function FormCustomer() {
                 <section className="pb-3 rounded-2xl z-50" style={{ fontFamily: "Inter" }}>
                     <div className="space-y-8 place-items-center">
                         <div className="text-lg font-normal pb-1 text-center">Welcome!Get a chance to become a valued customer</div>
-                       <form>
-                        <div className="space-y-4">
-                            <div className="flex space-x-5">
-                                <div className="">
-                                    <label className="text-sm opacity-90">First Name</label>
+                        <form>
+                            <div className="space-y-4">
+                                <div className="flex space-x-5">
+                                    <div className="">
+                                        <label className="text-sm opacity-90">First Name</label>
+                                        <div>
+                                            <input placeholder="First Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        </div>
+                                    </div>
+
+                                    <div className="">
+                                        <label className="text-sm opacity-90">Last Name</label>
+                                        <div>
+                                            <input placeholder="Last Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex space-x-5">
+                                    <div className="mt-1">
+                                        <label className="text-sm opacity-90">Date of Birth</label>
+                                        <div>
+                                            <input className="rounded-lg shadow-sm" type="text" placeholder="dd/mm/yy" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        </div>
+                                    </div>
+                                    <div className="mt-1">
+                                        <label className="text-sm opacity-90">Phone no</label>
+                                        <div>
+                                            <input className="rounded-lg shadow-sm" type="text" placeholder="Phone number" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mt-6 max-sm:justify-center max-sm:items-center">
+                                    <label className="text-sm opacity-90 max-sm:text-center">Email ID</label>
                                     <div>
-                                        <input placeholder="First Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        <input placeholder="Enter your Email address" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                     </div>
                                 </div>
 
-                                <div className="">
-                                    <label className="text-sm opacity-90">Last Name</label>
+
+                                <div className="mt-6">
+                                    <label className="text-sm opacity-90">Aadhar card no</label>
                                     <div>
-                                        <input placeholder="Last Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="flex space-x-5">
-                                <div className="mt-1">
-                                    <label className="text-sm opacity-90">Date of Birth</label>
-                                    <div>
-                                        <input className="rounded-lg shadow-sm" type="text" placeholder="dd/mm/yy" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+
+
+                                <div className="mt-8">
+                                    <button className="rounded-md w-[380px] h-8 text-white" style={{ backgroundColor: "#2614EF" }}>Create Customer</button>
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="">
+                                        <label className="">If already a customer?</label>
                                     </div>
-                                </div>
-                                <div className="mt-1">
-                                    <label className="text-sm opacity-90">Phone no</label>
-                                    <div>
-                                        <input className="rounded-lg shadow-sm" type="text" placeholder="Phone number" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
-                                    </div>
+                                    <button className="rounded-md w-[100px] h-8 text-white" style={{ backgroundColor: "#384347" }}>Login</button>
+
                                 </div>
                             </div>
-                            <div className="mt-6 max-sm:justify-center max-sm:items-center">
-                                <label className="text-sm opacity-90 max-sm:text-center">Email ID</label>
-                                <div>
-                                    <input placeholder="Enter your Email address" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
-                                </div>
-                            </div>
-
-
-                            <div className="mt-6">
-                                <label className="text-sm opacity-90">Aadhar card no</label>
-                                <div>
-                                    <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
-                                </div>
-                            </div>
-
-
-                            <div className="mt-8">
-                                <button className="rounded-md w-[380px] h-8 text-white" style={{ backgroundColor: "#2614EF" }}>Create Customer</button>
-                            </div>
-                            <div className="space-y-1">
-                                <div className="">
-                                    <label className="">If already a customer?</label>
-                                </div>
-                                <button className="rounded-md w-[100px] h-8 text-white" style={{ backgroundColor: "#384347" }}>Login</button>
-
-                            </div>
-                        </div>
                         </form>
                     </div>
                 </section>
