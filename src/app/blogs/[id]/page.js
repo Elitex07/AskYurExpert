@@ -18,14 +18,27 @@ export default function BlogPost() {
   }, [id]);
 
   if (!blog) {
-    return <p className="text-center mt-10">Loading blog...</p>;
+    return <p className="text-center mt-10 text-gray-600">Loading blog...</p>;
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">{blog.title}</h1>
-      <p className="text-gray-500 text-sm mb-6">{blog.date}</p>
-      <p className="text-gray-700 mb-6">{blog.content}</p>
+    <div className="bg-gradient-to-b from-gray-100 to-gray-200 min-h-screen">
+      <div className="container mx-auto py-12 px-6">
+        <div className="bg-white p-8 rounded-lg shadow-lg">
+          <h1 className="text-4xl font-extrabold text-gray-800 mb-6">{blog.title}</h1>
+          <p className="text-gray-500 text-sm mb-4">Published on: {blog.date}</p>
+          <hr className="border-gray-300 mb-6" />
+          <p className="text-gray-700 leading-relaxed text-lg">{blog.content}</p>
+        </div>
+        <div className="mt-8">
+          <a
+            href="/blogs"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+          >
+            Back to Blogs
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

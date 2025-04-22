@@ -124,7 +124,7 @@ export default function Blogs() {
           {blogPosts.map((post) => (
             <div
               key={post.id}
-              className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+              className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group border border-gray-200 hover:border-blue-500"
             >
               <a
                 href={`/blogs/${post.id}`} // Dynamic link for each blog
@@ -132,7 +132,9 @@ export default function Blogs() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <h2 className="text-2xl font-bold text-blue-600 mb-2">{post.title}</h2>
+                <h2 className="text-2xl font-bold text-blue-600 mb-2 group-hover:text-blue-800 transition duration-300">
+                  {post.title}
+                </h2>
                 <p className="text-gray-500 text-sm mb-4">{post.date}</p>
                 <p className="text-gray-700 mb-4">{post.content.slice(0, 100)}...</p>
               </a>
