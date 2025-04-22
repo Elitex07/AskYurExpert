@@ -1,4 +1,4 @@
-import { Configs } from "@/constants";
+import { Configs } from "../../constants";
 
 class Cus {
     constructor(clerkUser) {
@@ -10,7 +10,7 @@ class Cus {
 
     async init() {
         this._rawData = await this.get(this.clerkId);
-        if(!this._rawData) await this.create(this.clerkId, this.email, this.name);
+        if(!this._rawData) this._rawData = await this.create(this.clerkId, this.email, this.name);
         return this;
     }
 
