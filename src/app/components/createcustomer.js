@@ -66,7 +66,7 @@ export default function FormCustomer() {
 
 
                                 <div className="mt-8 flex justify-center">
-                                    <button className="rounded-md w-[380px] h-8 text-white max-sm:w-[320px]" style={{ backgroundColor: "#2614EF",margin:"auto" }}>Create Account</button>
+                                    <button className="rounded-md w-[380px] h-8 text-white max-sm:w-[320px]" style={{margin:"auto",backgroundImage: "linear-gradient(to bottom,hsl(245, 45%, 30%), hsl(260, 50%, 20%))" }}>Create Account</button>
                                 </div>
                                 <div className="">
                                     <div className="">
