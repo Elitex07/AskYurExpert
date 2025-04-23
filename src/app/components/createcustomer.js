@@ -20,14 +20,14 @@ export default function FormCustomer() {
                                     <div className="">
                                         <label className="text-sm opacity-90">First Name</label>
                                         <div>
-                                            <input placeholder="First Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input placeholder="First Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" style={{height: "35px",padding: "8px" }}></input>
                                         </div>
                                     </div>
 
                                     <div className="">
                                         <label className="text-sm opacity-90">Last Name</label>
                                         <div>
-                                            <input placeholder="Last Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input placeholder="Last Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" style={{height: "35px",padding: "8px" }}></input>
                                         </div>
                                     </div>
                                 </div>
@@ -35,13 +35,13 @@ export default function FormCustomer() {
                                     <div className="mt-1">
                                         <label className="text-sm opacity-90">Date of Birth</label>
                                         <div>
-                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" placeholder="dd/mm/yy" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" placeholder="dd/mm/yy" style={{height: "35px",padding: "8px" }}></input>
                                         </div>
                                     </div>
                                     <div className="mt-1">
                                         <label className="text-sm opacity-90">Phone no</label>
                                         <div>
-                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" placeholder="Phone number" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" placeholder="Phone number" style={{height: "35px",padding: "8px" }}></input>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@ export default function FormCustomer() {
                                     <label className="text-sm opacity-90">Email ID</label>
                                     </div>
                                     <div className="flex justify-center">
-                                        <input placeholder="Enter your Email address" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        <input placeholder="Enter your Email address" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" style={{height: "35px",padding: "8px" }}></input>
                                     </div>
                                 </div>
 
@@ -60,7 +60,7 @@ export default function FormCustomer() {
                                     <label className="text-sm opacity-90">Aadhar no</label>
                                     </div>
                                     <div className="flex justify-center">
-                                        <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                        <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px] focus:outline-none focus:border-[2px] focus:border-[#2614EF]" type="text" style={{height: "35px",padding: "8px" }}></input>
                                     </div>
                                 </div>
 
@@ -70,7 +70,7 @@ export default function FormCustomer() {
                                 </div>
                                 <div className="">
                                     <div className="">
-                                        <label className="">If already a customer?<a className="ml-1" href="/login" style={{textDecoration:"underline",hover:"#2614EF"}} onMouseOver={(e) => e.target.style.color = '#2614EF'} 
+                                        <label className="">If already a customer?<a className="ml-1" href="/login" style={{textDecoration:"underline"}} onMouseOver={(e) => e.target.style.color = '#2614EF'} 
   onMouseOut={(e) => e.target.style.color = '#212529'}>Login</a></label>
                                     </div>
                                     
