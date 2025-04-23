@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaHome, FaCog, FaUsers } from 'react-icons/fa'; // Example icon imports from react-icons
 
 export default function Sidebar({ isOpen, toggleSidebar }) {
   return (
@@ -17,9 +18,9 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
       >
         <h2 className="text-xl font-bold mb-4">Dashboard</h2>
         <ul className="space-y-2">
-          <li><a href="#" className="hover:text-gray-300">Overview</a></li>
-          <li><a href="#" className="hover:text-gray-300">Settings</a></li>
-          <li><a href="#" className="hover:text-gray-300">Users</a></li>
+          <li><a href="#" className="flex items-center space-x-2 hover:text-gray-300"><FaHome /><span>Overview</span></a></li>
+          <li><a href="#" className="flex items-center space-x-2 hover:text-gray-300"><FaCog /><span>Settings</span></a></li>
+          <li><a href="#" className="flex items-center space-x-2 hover:text-gray-300"><FaUsers /><span>Users</span></a></li>
         </ul>
       </aside>
     </>
