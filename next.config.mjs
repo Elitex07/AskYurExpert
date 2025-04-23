@@ -12,6 +12,17 @@ const nextConfig = {
                 hostname: 'raidenbot.xyz',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'personalfinancelab.com',
+                pathname: '/**',
+            },
+            // https://www.assetplus.in
+            {
+                protocol: 'https',
+                hostname: 'www.assetplus.in',
+                pathname: '/**',
+            },
         ],
     },
 };
