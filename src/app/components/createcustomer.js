@@ -66,12 +66,11 @@ export default function FormCustomer() {
 
 
                                 <div className="mt-8 flex justify-center">
-                                    <button className="rounded-md w-[380px] h-8 text-white max-sm:w-[320px]" style={{ backgroundColor: "#2614EF",margin:"auto" }}>Create Customer</button>
+                                    <button className="rounded-md w-[380px] h-8 text-white max-sm:w-[320px]" style={{ backgroundColor: "#2614EF",margin:"auto" }}>Create Account</button>
                                 </div>
                                 <div className="">
                                     <div className="">
-                                        <label className="">If already a customer?<a className="ml-1" href="/login" style={{textDecoration:"underline"}} onMouseOver={(e) => e.target.style.color = '#2614EF'} 
-  onMouseOut={(e) => e.target.style.color = '#212529'}>Login</a></label>
+                                        <label className="">If already a customer?<a className="ml-1" href="/login" style={{textDecoration:"underline"}} onMouseOver={(e) => e.target.style.color = '#2614EF'} onMouseOut={(e) => e.target.style.color = '#212529'}>Login</a></label>
                                     </div>
                                     
 
