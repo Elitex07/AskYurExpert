@@ -4,7 +4,7 @@
 export default function FormCustomer() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-[470px] h-[580px] max-sm:h-[640px] max-sm:w-[400px] m-auto rounded-2xl space-y-0.5" style={{ backgroundColor: "#ffffff", opacity: "100%", zIndex: "100", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)" }}>
+            <div className="w-[470px] h-[560px] max-sm:h-[600px] max-sm:w-[400px] m-auto rounded-2xl space-y-0.5" style={{ backgroundColor: "#ffffff", opacity: "100%", zIndex: "100", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)" }}>
                 <header className="pt-2">
                     <div className="text-center mt-3">
                         <span className="text-3xl font-semibold" style={{ color: "#212529", fontFamily: "Inter" }}>ASKYUR</span>
@@ -16,59 +16,64 @@ export default function FormCustomer() {
                         <div className="text-lg font-normal pb-1 text-center">Welcome!Get a chance to become a valued customer</div>
                         <form>
                             <div className="space-y-4">
-                                <div className="flex space-x-5">
+                                <div className="flex space-x-5 max-sm:flex max-sm:justify-center">
                                     <div className="">
                                         <label className="text-sm opacity-90">First Name</label>
                                         <div>
-                                            <input placeholder="First Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input placeholder="First Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                         </div>
                                     </div>
 
                                     <div className="">
                                         <label className="text-sm opacity-90">Last Name</label>
                                         <div>
-                                            <input placeholder="Last Name" className="rounded-lg shadow-sm" type="text" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input placeholder="Last Name" className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex space-x-5">
+                                <div className="flex space-x-5 max-sm:flex max-sm:justify-center">
                                     <div className="mt-1">
                                         <label className="text-sm opacity-90">Date of Birth</label>
                                         <div>
-                                            <input className="rounded-lg shadow-sm" type="text" placeholder="dd/mm/yy" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" placeholder="dd/mm/yy" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                         </div>
                                     </div>
                                     <div className="mt-1">
                                         <label className="text-sm opacity-90">Phone no</label>
                                         <div>
-                                            <input className="rounded-lg shadow-sm" type="text" placeholder="Phone number" style={{ width: "180px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                            <input className="rounded-lg shadow-sm w-[180px] max-sm:w-[150px]" type="text" placeholder="Phone number" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="mt-6 max-sm:justify-center max-sm:items-center">
-                                    <label className="text-sm opacity-90 max-sm:text-center">Email ID</label>
-                                    <div>
-                                        <input placeholder="Enter your Email address" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
-                                    </div>
-                                </div>
-
-
                                 <div className="mt-6">
-                                    <label className="text-sm opacity-90">Aadhar card no</label>
-                                    <div>
-                                        <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm" type="text" style={{ width: "380px", height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                    <div className="w-[380px] max-sm:w-[320px] max-sm:mx-auto">
+                                    <label className="text-sm opacity-90">Email ID</label>
+                                    </div>
+                                    <div className="flex justify-center">
+                                        <input placeholder="Enter your Email address" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
                                     </div>
                                 </div>
 
 
-                                <div className="mt-8">
-                                    <button className="rounded-md w-[380px] h-8 text-white" style={{ backgroundColor: "#2614EF" }}>Create Customer</button>
+                                <div className="mt-6 justify-center">
+                                <div className="w-[380px] max-sm:w-[320px] max-sm:mx-auto">
+                                    <label className="text-sm opacity-90">Aadhar no</label>
+                                    </div>
+                                    <div className="flex justify-center">
+                                        <input placeholder="Enter your Aadhar number" className="rounded-lg shadow-sm w-[380px] max-sm:w-[320px]" type="text" style={{height: "35px", border: "0px solid black", padding: "8px" }}></input>
+                                    </div>
                                 </div>
-                                <div className="space-y-1">
+
+
+                                <div className="mt-8 flex justify-center">
+                                    <button className="rounded-md w-[380px] h-8 text-white max-sm:w-[320px]" style={{ backgroundColor: "#2614EF",margin:"auto" }}>Create Customer</button>
+                                </div>
+                                <div className="">
                                     <div className="">
-                                        <label className="">If already a customer?</label>
+                                        <label className="">If already a customer?<a className="ml-1" href="/login" style={{textDecoration:"underline",hover:"#2614EF"}} onMouseOver={(e) => e.target.style.color = '#2614EF'} 
+  onMouseOut={(e) => e.target.style.color = '#212529'}>Login</a></label>
                                     </div>
-                                    <button className="rounded-md w-[100px] h-8 text-white" style={{ backgroundColor: "#384347" }}>Login</button>
+                                    
 
                                 </div>
                             </div>
