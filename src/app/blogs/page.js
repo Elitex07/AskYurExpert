@@ -7,18 +7,21 @@ export default function Blogs() {
     {
       id: 1,
       title: "First Blog Post",
+      subheading: "An introduction to our blog",
       content: "This is the content of the first blog post. It's a great post!",
       date: "2025-04-01",
     },
     {
       id: 2,
       title: "Second Blog Post",
+      subheading: "Exploring new ideas",
       content: "This is the content of the second blog post. It's even better!",
       date: "2025-04-11",
     },
     {
       id: 3,
       title: "Third Blog Post",
+      subheading: "Don't miss this one!",
       content: "This is the content of the third blog post. You won't want to miss this!",
       date: "2025-04-20",
     },
@@ -32,6 +35,7 @@ export default function Blogs() {
   const [showForm, setShowForm] = useState(false); // State to toggle the form
   const [newBlog, setNewBlog] = useState({
     title: "",
+    subheading: "",
     content: "",
   });
 
@@ -45,7 +49,7 @@ export default function Blogs() {
     setBlogPosts(updatedBlogs); // Add the new blog to the top of the list
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs)); // Save blogs to localStorage
     setShowForm(false); // Hide the form after submission
-    setNewBlog({ title: "", content: "" }); // Reset the form
+    setNewBlog({ title: "", subheading: "", content: "" }); // Reset the form
   };
 
   const handleInputChange = (e) => {
@@ -65,8 +69,8 @@ export default function Blogs() {
   return (
     <div className="bg-gradient-to-b from-gray-100 to-gray-200 min-h-screen">
       <Nav />
-      <div className="container mx-auto py-8 px-4">
-        <div className="flex justify-between items-center mb-8">
+      <div className="container mx-auto py-32 px-4">
+        <div className="flex justify-between items-center mb-16">
           <h1 className="text-4xl font-extrabold text-gray-800">Our Blog Posts</h1>
           <button
             onClick={() => setShowForm(true)}
@@ -89,6 +93,17 @@ export default function Blogs() {
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter blog title"
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-gray-700 font-medium mb-2">Blog Subheading</label>
+              <input
+                type="text"
+                name="subheading"
+                value={newBlog.subheading}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter blog subheading"
               />
             </div>
             <div className="mb-6">
@@ -135,6 +150,7 @@ export default function Blogs() {
                 <h2 className="text-2xl font-bold text-blue-600 mb-2 group-hover:text-blue-800 transition duration-300">
                   {post.title}
                 </h2>
+                <h3 className="text-lg font-medium text-gray-600 mb-2">{post.subheading}</h3>
                 <p className="text-gray-500 text-sm mb-4">{post.date}</p>
                 <p className="text-gray-700 mb-4">{post.content.slice(0, 100)}...</p>
               </a>
