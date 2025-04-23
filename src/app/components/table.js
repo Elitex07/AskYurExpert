@@ -1,6 +1,6 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
+import { Configs } from "../../constants";
 
 export default function Table({ data, isAdmin, onUpdateData }) {
     const [filterStatus, setFilterStatus] = useState(""); // State to store the selected filter
@@ -9,10 +9,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
     const [newMember, setNewMember] = useState({
         id: null,
         name: "",
-        role: "",
+        email: "",
         createdAt: "",
         panNumber: "",
-        status: "Active",
+        status: "unverified",
     });
     const [editingMember, setEditingMember] = useState(null); // State to track the member being edited
 
@@ -30,66 +30,109 @@ export default function Table({ data, isAdmin, onUpdateData }) {
     };
 
     // Handler for adding a new member
-    const handleAddMember = () => {
-        if (!newMember.name || !newMember.role || !newMember.createdAt) {
+    const handleAddMember = async () => {
+        if (!newMember.name || !newMember.email || !newMember.panNumber || !newMember.status) {
             alert("Please fill in all required fields.");
             return;
         }
 
-        // Assign a unique ID to the new member
-        const newId = data.length > 0 ? Math.max(...data.map((d) => d.id)) + 1 : 1;
-        const updatedData = [
-            ...data,
-            { ...newMember, id: newId }, // Add the new member with a unique ID
-        ];
+        try {
+            newMember.id = await fetch(`${Configs.API_URL}/customers`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                },
+                body: JSON.stringify({
+                    email: newMember.email,
+                    name: newMember.name,
+                    createdAt: new Date().toISOString(),
+                    panNumber: newMember.panNumber,
+                    status: newMember.status
+                })
+            }).then(async res => {
+                let d = await res.json();
+                return d.id;
+            });
 
-        onUpdateData(updatedData); // Update the shared data in the parent component
-        setShowAddMemberForm(false); // Close the form
-        setNewMember({
-            id: null,
-            name: "",
-            role: "",
-            createdAt: "",
-            panNumber: "",
-            status: "Active",
-        }); // Reset the form
-    };
-
-    // Handler for editing a member
-    const handleEditMember = (member) => {
-        setEditingMember(member); // Set the member being edited
-        setNewMember(member); // Populate the form with the member's details
-        setShowAddMemberForm(true); // Show the form for editing
+            const updatedData = [...data, createdMember];
+            onUpdateData(updatedData); // Update the shared data in the parent component
+            setShowAddMemberForm(false); // Close the form
+            setNewMember({
+                id: null,
+                name: "",
+                email: "",
+                createdAt: "",
+                panNumber: "",
+                status: "unverified",
+            }); // Reset the form
+        } catch (error) {
+            console.error("Error creating member:", error);
+            alert("Email and Pancard already exist. Please try again.");
+        }
     };
 
     // Handler for saving the edited member
-    const handleSaveEdit = () => {
-        if (!newMember.name || !newMember.role || !newMember.createdAt) {
+    const handleSaveEdit = async () => {
+        if (!newMember.name || !newMember.email || !newMember.createdAt) {
             alert("Please fill in all required fields.");
             return;
         }
 
-        const updatedData = data.map((user) =>
-            user.id === editingMember.id ? newMember : user
-        );
+        try {
+            fetch(`${Configs.API_URL}/customers/${editingMember.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                },
+                body: JSON.stringify({
+                    email: newMember.email,
+                    name: newMember.name,
+                    createdAt: newMember.createdAt,
+                    panNumber: newMember.panNumber,
+                    status: newMember.status
+                })
+            }).then(res => res.json());
 
-        onUpdateData(updatedData); // Update the shared data in the parent component
-        setShowAddMemberForm(false); // Close the form
-        setEditingMember(null); // Clear the editing state
-        setNewMember({
-            id: null,
-            name: "",
-            role: "",
-            createdAt: "",
-            panNumber: "",
-            status: "Active",
-        }); // Reset the form
+            const updatedData = data.map((user) =>
+                user.id === editingMember.id ? updatedMember : user
+            );
+
+            onUpdateData(updatedData); // Update the shared data in the parent component
+            setShowAddMemberForm(false); // Close the form
+            setEditingMember(null); // Clear the editing state
+            setNewMember({
+                id: null,
+                name: "",
+                email: "",
+                createdAt: "",
+                panNumber: "",
+                status: "unverified",
+            }); // Reset the form
+        } catch (error) {
+            console.error("Error updating member:", error);
+            alert("Failed to update member. Please try again.");
+        }
     };
 
     // Handler for deleting a member
-    const handleDeleteMember = (id) => {
-        const updatedData = data.filter((user) => user.id !== id); // Remove the user with the given ID
-        onUpdateData(updatedData); // Update the shared data in the parent component
+    const handleDeleteMember = async (id) => {
+        try {
+            fetch(`${Configs.API_URL}/customers/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                },
+            }).then(res => res.json());
+
+            const updatedData = data.filter((user) => user.id !== id); // Remove the user with the given ID
+            onUpdateData(updatedData); // Update the shared data in the parent component
+        } catch (error) {
+            console.error("Error deleting member:", error);
+            alert("Failed to delete member. Please try again.");
+        }
     };
 
     return (
@@ -108,9 +151,9 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                             onChange={(e) => handleFilterChange(e.target.value)}
                         >
                             <option value="">All</option>
-                            <option value="Active">Active</option>
-                            <option value="Suspended">Suspended</option>
-                            <option value="Inactive">Inactive</option>
+                            <option value="process">In Process</option>
+                            <option value="verified">Verified</option>
+                            <option value="unverified">Unverified</option>
                         </select>
                     </div>
                     {isAdmin && (
@@ -122,10 +165,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                                 setNewMember({
                                     id: null,
                                     name: "",
-                                    role: "",
+                                    email: "",
                                     createdAt: "",
                                     panNumber: "",
-                                    status: "Active",
+                                    status: "unverified",
                                 });
                             }}
                         >
@@ -150,9 +193,9 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                             />
                             <input
                                 type="text"
-                                placeholder="Role"
-                                value={newMember.role}
-                                onChange={(e) => setNewMember({ ...newMember, role: e.target.value })}
+                                placeholder="Email"
+                                value={newMember.email}
+                                onChange={(e) => setNewMember({ ...newMember, email: e.target.value })}
                                 className="border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                             <input
@@ -174,9 +217,9 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                                 onChange={(e) => setNewMember({ ...newMember, status: e.target.value })}
                                 className="border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <option value="Active">Active</option>
-                                <option value="Suspended">Suspended</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="process">In Process</option>
+                                <option value="verified">Verified</option>
+                                <option value="unverified">Unverified</option>
                             </select>
                         </div>
                         <div className="flex justify-end mt-4">
@@ -194,10 +237,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                                     setNewMember({
                                         id: null,
                                         name: "",
-                                        role: "",
+                                        email: "",
                                         createdAt: "",
                                         panNumber: "",
-                                        status: "Active",
+                                        status: "unverified",
                                     });
                                 }}
                             >
@@ -213,7 +256,7 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                         <thead>
                             <tr className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
                                 <th className="border border-gray-300 px-6 py-3 text-left font-semibold">User</th>
-                                <th className="border border-gray-300 px-6 py-3 text-left font-semibold">Role</th>
+                                <th className="border border-gray-300 px-6 py-3 text-left font-semibold">Email</th>
                                 <th className="border border-gray-300 px-6 py-3 text-left font-semibold">Created At</th>
                                 <th className="border border-gray-300 px-6 py-3 text-left font-semibold">PAN Number</th>
                                 <th className="border border-gray-300 px-6 py-3 text-left font-semibold">Status</th>
@@ -229,15 +272,15 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                                     } hover:bg-blue-50 transition duration-200`}
                                 >
                                     <td className="border border-gray-300 px-6 py-3">{user.name}</td>
-                                    <td className="border border-gray-300 px-6 py-3">{user.role}</td>
+                                    <td className="border border-gray-300 px-6 py-3">{user.email}</td>
                                     <td className="border border-gray-300 px-6 py-3">{user.createdAt}</td>
                                     <td className="border border-gray-300 px-6 py-3">{user.panNumber || "N/A"}</td>
                                     <td className="border border-gray-300 px-6 py-3">
                                         <span
                                             className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
-                                                user.status === "Active"
+                                                user.status === "verified"
                                                     ? "bg-green-100 text-green-700"
-                                                    : user.status === "Suspended"
+                                                    : user.status === "process"
                                                     ? "bg-yellow-100 text-yellow-700"
                                                     : "bg-red-100 text-red-700"
                                             }`}

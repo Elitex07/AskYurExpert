@@ -31,7 +31,7 @@ class Cus {
      * @param {String} name 
      * @returns Customer
      */
-    async create(clerkId, email, name) {
+    async create(clerkId, email, name, panNumber, status = 'unverified') {
         return fetch(`${Configs.API_URL}/customers`, {
             method: 'POST',
             headers: {
@@ -41,7 +41,10 @@ class Cus {
             body: JSON.stringify({
                 clerkId,
                 email,
-                name
+                name,
+                createdAt: new Date().toISOString(),
+                panNumber,
+                status
             })
         }).then(res => res.json());
     }
