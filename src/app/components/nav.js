@@ -32,7 +32,7 @@ export default function Nav({ toggleSidebar, setNavHeight }) {
           </span>
           <div className="hidden lg:flex space-x-6">
             <span className="cursor-pointer text-lg">Partners</span>
-            <span className="cursor-pointer text-lg">Blogs</span>
+            <span className="cursor-pointer text-lg"><a href="http://localhost:3000/blogs">Blogs</a></span>
             <span className="cursor-pointer text-lg">FAQs</span>
           </div>
         </div>
