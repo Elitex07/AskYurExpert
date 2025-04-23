@@ -27,7 +27,7 @@ export default function Home() {
         {/* Header Title */}
         <div>
           <style>
-            @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+            @import url(https://fonts.googleapis.com/css2?family=Itim&display=swap);
           </style>
           <div
             style={{ fontFamily: '"Itim"' }}

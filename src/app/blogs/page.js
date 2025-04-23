@@ -3,29 +3,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../components/nav";
 
 export default function Blogs() {
-  const [blogPosts, setBlogPosts] = useState([
-    {
-      id: 1,
-      title: "First Blog Post",
-      subheading: "An introduction to our blog",
-      content: "This is the content of the first blog post. It's a great post!",
-      date: "2025-04-01",
-    },
-    {
-      id: 2,
-      title: "Second Blog Post",
-      subheading: "Exploring new ideas",
-      content: "This is the content of the second blog post. It's even better!",
-      date: "2025-04-11",
-    },
-    {
-      id: 3,
-      title: "Third Blog Post",
-      subheading: "Don't miss this one!",
-      content: "This is the content of the third blog post. You won't want to miss this!",
-      date: "2025-04-20",
-    },
-  ]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
     const storedBlogs = JSON.parse(localStorage.getItem("blogs")) || [];
