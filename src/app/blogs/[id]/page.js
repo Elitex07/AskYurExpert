@@ -1,6 +1,7 @@
 'use client';
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function BlogPost() {
   const { id } = useParams(); // Get the blog ID from the URL
@@ -30,15 +31,14 @@ export default function BlogPost() {
           <hr className="border-gray-300 mb-6" />
           <p className="text-gray-700 leading-relaxed text-lg">{blog.content}</p>
         </div>
-        <div className="mt-8">
-          <a
+          <Link
             href="/blogs"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
           >
             Back to Blogs
-          </a>
+
+          </Link>
         </div>
       </div>
-    </div>
   );
 }
