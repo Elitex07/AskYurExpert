@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Configs } from "../../constants";
 
 export default function Table({ data, isAdmin, onUpdateData }) {
     const [filterStatus, setFilterStatus] = useState(""); // State to store the selected filter
@@ -37,11 +36,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
         }
 
         try {
-            newMember.id = await fetch(`${Configs.API_URL}/customers`, {
+            const createdMember = await fetch(`/api/customers`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     email: newMember.email,
@@ -50,10 +48,7 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                     panNumber: newMember.panNumber,
                     status: newMember.status
                 })
-            }).then(async res => {
-                let d = await res.json();
-                return d.id;
-            });
+            }).then(res => res.json());
 
             const updatedData = [...data, createdMember];
             onUpdateData(updatedData); // Update the shared data in the parent component
@@ -80,11 +75,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
         }
 
         try {
-            fetch(`${Configs.API_URL}/customers/${editingMember.id}`, {
+            const updatedMember = await fetch(`api/customers/${editingMember.id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     email: newMember.email,
@@ -119,11 +113,10 @@ export default function Table({ data, isAdmin, onUpdateData }) {
     // Handler for deleting a member
     const handleDeleteMember = async (id) => {
         try {
-            fetch(`${Configs.API_URL}/customers/${id}`, {
+            fetch(`api/customers/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
+                    'Content-Type': 'application/json'
                 },
             }).then(res => res.json());
 
@@ -133,6 +126,20 @@ export default function Table({ data, isAdmin, onUpdateData }) {
             console.error("Error deleting member:", error);
             alert("Failed to delete member. Please try again.");
         }
+    };
+
+    // Handler for editing a member
+    const handleEditMember = (member) => {
+        setEditingMember(member); // Set the member to be edited
+        setShowAddMemberForm(true); // Show the Add/Edit Member form
+        setNewMember({
+            id: member.id,
+            name: member.name,
+            email: member.email,
+            createdAt: member.createdAt,
+            panNumber: member.panNumber,
+            status: member.status,
+        }); // Populate the form with the member's data
     };
 
     return (
@@ -196,13 +203,6 @@ export default function Table({ data, isAdmin, onUpdateData }) {
                                 placeholder="Email"
                                 value={newMember.email}
                                 onChange={(e) => setNewMember({ ...newMember, email: e.target.value })}
-                                className="border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                            <input
-                                type="date"
-                                placeholder="Created At"
-                                value={newMember.createdAt}
-                                onChange={(e) => setNewMember({ ...newMember, createdAt: e.target.value })}
                                 className="border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                             <input
