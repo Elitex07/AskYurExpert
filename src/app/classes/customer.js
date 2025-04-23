@@ -19,6 +19,7 @@ class Cus {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
             }
         }).then(res => res.json());
     }
@@ -35,6 +36,7 @@ class Cus {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
             },
             body: JSON.stringify({
                 clerkId,
