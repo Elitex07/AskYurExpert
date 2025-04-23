@@ -1,236 +1,235 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Nav from "./components/nav";
 import SignupModal from "./components/SignupModal";
 
-
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const navRef = useRef(null);
 
   const toggleSignupModal = () => {
     setShowSignup(!showSignup);
   };
 
+  useEffect(() => {
+    const navEl = document.getElementById("main-nav");
+    if (navEl) {
+      setNavHeight(navEl.offsetHeight);
+    }
+  }, []);
+
   return (
-    <section className="w-full h-full">
-      <Nav />
-      <main>
+    <section className="w-full">
+      <Nav ref={navRef} />
+
+      <main style={{ paddingTop: `${navHeight}px` }} className="w-full h-full">
+        {/* Header Title */}
         <div>
           <style>
-            @import url(https://fonts.googleapis.com/css2?family=Itim&display=swap);
+            @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
           </style>
           <div
             style={{ fontFamily: '"Itim"' }}
-            className="text-4xl text-black text-center font-medium"
+            className="text-4xl text-black text-center font-medium mt-6"
           >
             INVESTING AT YOUR FINGERTIPS
           </div>
         </div>
-        <div className="text-zinc-900 text-center my-7 text-2xl font-normal">
+
+        {/* Description */}
+        <div className="text-zinc-900 text-center my-7 text-2xl font-normal space-y-1">
           <div>Seamlessly connect with mutual fund</div>
           <div>Distributors, exploring top-performing</div>
-          <div>funds, and track your investments-all</div>
+          <div>funds, and track your investments—all</div>
           <div>in one place.</div>
         </div>
-        <div className="flex space-x-8 justify-center">
-          <div>
-            <button
-              className="px-5 py-1.5 rounded-lg border-0 text-center text-white"
-              style={{ backgroundColor: "#4558BD", cursor: "pointer" }}
-              onClick={toggleSignupModal}
-            >
-              Get Started
-            </button>
-          </div>
-          <div>
-            <button
-              className="px-5 py-1.5 rounded-lg border-0 text-center text-white"
-              style={{ backgroundColor: "#7E37B3", cursor: "pointer" }}
-            >
-              Explore Funds
-            </button>
-          </div>
-        </div>
-        <div className="mt-20 mb-20 justify-center">
-          <div className="text-center font-bold text-3xl mb-20">
-            Why Choose ASKYUREXPERT?
-          </div>
-          <div className="md:flex justify-center gap-x-20 my-10 flex-wrap space-y-6 sm:justify-items-center">
-            <div className="w-auto h-30 bg-gray-200 rounded-2xl place-content-center">
-              <h1 className="text-lg font-bold text-center">Direct Access to Distributors</h1>
-              <p className="text-center">Get expert guidance from</p>
-              <p className="text-center">certified professionals.</p>
-            </div>
-            <div className="w-auto h-30 bg-gray-200 rounded-2xl place-content-center">
-              <h1 className="text-lg font-bold text-center">Explore high performing funds</h1>
-              <p className="text-center">Stay updated with curated</p>
-              <p className="text-center">list of top rated funds.</p>
 
-            </div>
-            <div className="w-auto h-30 bg-gray-200 rounded-2xl place-content-center">
-              <h1 className="text-lg font-bold text-center">Track your portfolio</h1>
-              <p className="text-center">Monitor performance,returns,and stay</p>
-              <p className="text-center">on top of your goals.</p>
-            </div>
-            <div className="rounded-2xl bg-gray-200 h-30 w-auto place-content-center">
-              <h1 className="text-lg font-bold text-center">Secure & Transparent</h1>
-              <p className="text-center">Your investments are safe with top-</p>
-              <p className="text-center">notch security.</p>
-            </div>
-          </div>
+        {/* CTA Buttons */}
+        <div className="flex space-x-8 justify-center mb-10">
+          <button
+            className="px-5 py-1.5 rounded-lg text-white bg-[#4558BD]"
+            onClick={toggleSignupModal}
+          >
+            Get Started
+          </button>
+          <button className="px-5 py-1.5 rounded-lg text-white bg-[#7E37B3]">
+            Explore Funds
+          </button>
         </div>
 
-        <div className="md:flex gap-x-30 justify-center mb-25 mt-25 bg-gray-200 pt-2.5 pb-2.5 flex-wrap sm:w-full">
-          <div className="justify-items-center">
-            <img src="https://www.assetplus.in/assets/drawables/feature-1.svg" className=""></img>
-            <p className="text-center">Trusted by over 4,00,000+</p>
-            <p className="text-center">users</p>
-          </div>
-          <div className="justify-items-center"><img src="https://www.assetplus.in/assets/drawables/feature-2.svg" className=""></img>
-            <p className="text-center">Handling 8500 +Cr of</p>
-            <p className="text-center">investments</p></div>
-          <div className="justify-items-center"><img src="https://www.assetplus.in/assets/drawables/feature-3.svg" className=""></img>
-            <p className="text-center">Achieving goals for over</p>
-            <p className="text-center">1,00,000+ families</p></div>
-          <div className="justify-items-center"><img src="https://www.assetplus.in/assets/drawables/feature-4.svg" className=""></img>
-            <p className="text-center">Rated 4.7+ on Playstore and</p>
-            <p className="text-center">Appstore</p></div>
-        </div>
-        <div className="md:flex lg:flex sm:flex space-x-25 mt-40 mb-40">
-          <div className="max-w-[50%] h-auto space-y-8 ml-12 max-sm:max-w-[100%] max-sm:justify-items-center">
-
-
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold max-sm:text-center">Build Wealth the Smart Way with Mutual Funds</h1>
-            <div className="mt-5">
-              <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>True wealth creation doesn’t happen overnight—it’s the result of careful planning, emotional discipline, and consistent execution.At Askyourexpert,you every step of the way,helping you turn your financial dreams into reality.</p>
-              {/* <p className="text-lg text-zinc-800">planning,emotional discipline,and consistent execution.At Askyourexpert,</p>
-              <p className="text-lg text-zinc-800">you every step of the way,helping you turn your financial dreams into reality.</p> */}
-
-
-            </div>
-            <div className="space-y-3 mt-25">
-
-              <div className="space-y-1">
-                <div className="flex">
-              <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-              <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Certified Investment Experts</h1>
-                </div>
-                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Work with professionals who are qualified and experienced in mutual fund advisory.</p>
-                <div className="flex">
-                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>Personalized, Goal-Based Planning</h1>
-                </div>
-                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>We tailor your investment strategy around your unique financial goals and life aspirations.</p>
-               <div className="flex">
-               <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF" }}>100% Paperless Process</h1>
-                </div>
-                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Enjoy a seamless and eco-friendly experience with fully digital investments.</p>
-                <div className="flex">
-                <svg className="mt-[-3px]" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#2614EF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                <h1 className="text-lg font-bold" style={{ fontFamily: "CrimsonText",color: "#2614EF"}}>Real-Time Online Tracking</h1>
-               </div>
-                <p className="text-lg text-zinc-800" style={{textAlign:"justify"}}>Stay in control with transparent, anytime access to your investment performance.</p>
+        {/* Why Choose Section */}
+        <section className="text-center mt-20 mb-20 px-4">
+          <h2 className="text-3xl font-bold mb-12">Why Choose ASKYUREXPERT?</h2>
+          <div className="md:flex justify-center gap-8 flex-wrap space-y-6 md:space-y-0">
+            {[
+              {
+                title: "Direct Access to Distributors",
+                desc: ["Get expert guidance from", "certified professionals."],
+              },
+              {
+                title: "Explore high performing funds",
+                desc: ["Stay updated with curated", "list of top rated funds."],
+              },
+              {
+                title: "Track your portfolio",
+                desc: ["Monitor performance, returns,", "and stay on top of your goals."],
+              },
+              {
+                title: "Secure & Transparent",
+                desc: ["Your investments are safe with", "top-notch security."],
+              },
+            ].map((item, i) => (
+              <div key={i} className="bg-gray-200 rounded-2xl p-4 w-72 mx-auto">
+                <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                {item.desc.map((line, j) => (
+                  <p key={j}>{line}</p>
+                ))}
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="flex flex-wrap justify-center gap-8 bg-gray-200 py-6 px-4">
+          {[
+            {
+              img: "https://www.assetplus.in/assets/drawables/feature-1.svg",
+              text: ["Trusted by over 4,00,000+", "users"],
+            },
+            {
+              img: "https://www.assetplus.in/assets/drawables/feature-2.svg",
+              text: ["Handling 8500+ Cr of", "investments"],
+            },
+            {
+              img: "https://www.assetplus.in/assets/drawables/feature-3.svg",
+              text: ["Achieving goals for over", "1,00,000+ families"],
+            },
+            {
+              img: "https://www.assetplus.in/assets/drawables/feature-4.svg",
+              text: ["Rated 4.7+ on Playstore and", "Appstore"],
+            },
+          ].map((item, i) => (
+            <div key={i} className="text-center w-48">
+              <img src={item.img} alt={`stat-${i}`} className="mx-auto mb-2" />
+              {item.text.map((line, j) => (
+                <p key={j}>{line}</p>
+              ))}
             </div>
+          ))}
+        </section>
 
-          </div>
-          <div className="w-[50%] h-auto">
-            <img src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" className="md:w-150 md:h-130 ml-10 mt-10 sm:w-140 sm:h-120 lg:w-160 lg:h-150 max-sm:hidden"></img>
-          </div>
-        </div>
-        <div className="md:flex lg:flex sm:flex gap-x-30 mt-10 mb-5">
-          <div className="max-w-[50%] h-auto ml-12 max-sm:max-w-[100%]">
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">What is ASKYUREXPERT?</h1>
-            <div style={{textAlign:"justify"}} className="mt-7 space-y-1">
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Askyurexpert is a dynamic online platform designed to connect you with a diverse network of verified experts across various industries and disciplines.Whether you are facing a complex technical issue,seeking professional advice, or need guidance on a specific project,Askyurexpert provides a seamless and efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.
-              </p>
-              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800">Whether you are facing a complex technical issue,seeking professional advice, or need</p>
-
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800">guidance on a specific project,Askyurexpert provides a seamless and </p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800">efficient way to get the answers you need. Simply ask your question and let our community of experienced professionals share their knowledge and insights.</p> */}
+        {/* Wealth Building Section */}
+        <section className="flex flex-wrap justify-between items-center mt-20 mb-20 px-6">
+          <div className="w-full md:w-1/2 space-y-6">
+            <h2 className="text-3xl font-bold font-serif text-center md:text-left">Build Wealth the Smart Way with Mutual Funds</h2>
+            <p className="text-lg text-zinc-800 text-justify">
+              True wealth creation doesn’t happen overnight—it’s the result of careful planning, emotional discipline, and consistent execution. At Askyourexpert, we guide you every step of the way, helping you turn your financial dreams into reality.
+            </p>
+            <div className="space-y-4">
+              {[
+                "Certified Investment Experts",
+                "Personalized, Goal-Based Planning",
+                "100% Paperless Process",
+                "Real-Time Online Tracking",
+              ].map((feature, i) => (
+                <div key={i}>
+                  <div className="flex items-start">
+                    <svg className="mr-2" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#2614EF">
+                      <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+                    </svg>
+                    <span className="font-bold text-blue-800">{feature}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="w-[50%] justify-end h-auto">
-            <img src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" className="md:w-140 md:h-100 sm:w-140 sm:h-120 lg:w-160 lg:h-140 max-sm:hidden"></img>
+          <div className="hidden md:block w-full md:w-1/2">
+            <img
+              src="https://www.assetplus.in/assets/drawables/howitworks@2x.png"
+              alt="how-it-works"
+              className="w-full max-w-md mx-auto"
+            />
           </div>
-        </div>
-        <div className="md:flex lg:flex sm:flex mt-5 mb-50 gap-x-20">
-          <div className="max-w-[50%] h-auto ml-12 max-sm:max-w-[100%]" style={{textAlign:"justify"}}>
+        </section>
 
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">How it works?</h1>
-            <div className="mt-7 mb-10 space-y-2">
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Clearly and concisely describe your query.Provide relevant details to help experts understand your needs.Your question is routed to relevant experts within our network.Review the responses and choose the insights that best address your question.</p>
-              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800"> Provide relevant details to help experts understand your needs.</p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Your question is routed to relevant experts within our network.</p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800">Review the responses and choose the insights that best address your question.</p> */}
-            </div>
+        {/* About Section */}
+        <section className="flex flex-wrap mt-10 mb-10 px-6">
+          <div className="w-full md:w-1/2 space-y-6">
+            <h2 className="text-3xl font-bold font-serif text-center md:text-left">What is ASKYUREXPERT?</h2>
+            <p className="text-lg text-zinc-800 text-justify">
+              Askyurexpert is a dynamic online platform designed to connect you with a diverse network of verified experts across various industries. Whether you are facing a technical issue, seeking advice, or need project guidance, Askyurexpert helps you get answers quickly and efficiently.
+            </p>
           </div>
-
-          <div className="max-w-[50%] max-sm:max-w-[100%] h-auto ml-12">
-            <h1 style={{ fontFamily: "CrimsonText" }} className="text-3xl font-bold text-center">Key Features & Benefits</h1>
-            <div className="mt-7 mb-10 space-y-2">
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Connect with professionals from various fields, ensuring you find the right expertise for your specific needs.Get tailored answers directly relevant to your challenges, eliminating irrelevant information.Stop sifting through countless articles and forums.Get direct answers quickly and efficiently.Benefit from the practical experience and in-depth knowledge of seasoned professionals.</p>
-              {/* <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>the right expertise for your specific needs.</p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Get tailored answers directly relevant to your challenges, eliminating irrelevant information.</p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Stop sifting through countless articles and forums.Get direct answers quickly and efficiently.</p>
-              <p className="font-light md:text-lg lg:text-lg text-zinc-800" style={{textAlign:"justify"}}>Benefit from the practical experience and in-depth knowledge of seasoned professionals.</p> */}
-            </div>
+          <div className="hidden md:block w-full md:w-1/2">
+            <img
+              src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png"
+              alt="platform"
+              className="w-full max-w-md mx-auto"
+            />
           </div>
+        </section>
 
-        </div>
-
-
-
+        {/* How it Works + Features */}
+        <section className="flex flex-wrap gap-8 mt-6 mb-20 px-6">
+          <div className="w-full md:w-1/2">
+            <h2 className="text-3xl font-bold font-serif text-center md:text-left">How it works?</h2>
+            <p className="text-lg text-zinc-800 mt-6 text-justify">
+              Describe your query clearly and provide relevant details. Your question is routed to the right experts, and you'll receive responses tailored to your needs.
+            </p>
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-3xl font-bold font-serif text-center md:text-left">Key Features & Benefits</h2>
+            <p className="text-lg text-zinc-800 mt-6 text-justify">
+              Connect with professionals from various fields. Get tailored answers relevant to your situation. Avoid information overload and benefit from expert insights—fast.
+            </p>
+          </div>
+        </section>
       </main>
 
-      <footer style={{ backgroundColor: "#7ED1ED" }} className="w-full h-auto">
-
-        {/* <div className="w-full h-[86px] bg-blue-300"></div> */}
-        <div className="sm:grid sm:grid-cols-2 sm:gap-4 flex flex-col">
-          <div className="space-y-6 sm:order-1 order-2 ml-5 mt-2">
-            <div style={{ fontFamily: '"Crimson Text"' }}
-              className="text-2xl text-zinc-800 font-bold">ASKYUREXPERT</div>
-            <div className="text-sm text-zinc-800 font-extralight my-2">
-              <p style={{textAlign:"justify"}}>Copyright © 2025 ValuePlus Technologies Pvt. Ltd. All Rights Reserved AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered distributor of Mutual Funds (ARN-114376)</p>
-              {/* <p>AssetPlus (ValuePlus Technologies Private Limited) is an AMFI registered</p>
-              <p>distributor of Mutual Funds (ARN-114376)</p> */}
-            </div>
-            <div className="text-sm text-zinc-800 font-extralight my-5">
-              <p style={{textAlign:"justify"}}>Mutual Fund investments are subject to market risks, read all scheme related documents carefully before investing.Past performance is not indicative of future performance</p>
-              {/* <p>related documents carefully before investing. Past performance is not</p>
-              <p>indicative of future performance</p> */}
-            </div>
+      {/* Footer */}
+      <footer className="bg-[#7ED1ED] w-full px-6 py-10">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-zinc-800 font-serif">ASKYUREXPERT</h3>
+            <p className="text-sm text-zinc-800">
+              © 2025 ValuePlus Technologies Pvt. Ltd. All Rights Reserved. AssetPlus is an AMFI registered distributor of Mutual Funds (ARN-114376).
+            </p>
+            <p className="text-sm text-zinc-800">
+              Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.
+            </p>
           </div>
-          <div className="order-1 sm:order-2 grid grid-cols-3 mb-5 mt-2 ml-5 sm:grid-cols-3 md:gap-10 sm:gap-7 lg:gap-15 sm:space-y-2">
-            <div className="space-y-1">
-              <div className="text-zinc-800">Legal</div>
-              <div className="text-blue-700 cursor-pointer">Privacy Policy</div>
-              <div className="text-blue-700 cursor-pointer">Terms & Conditions</div>
-              <div className="text-blue-700 cursor-pointer">Disclaimer</div>
+          <div className="grid grid-cols-3 gap-6">
+            <div>
+              <h4 className="text-zinc-800 font-semibold">Legal</h4>
+              <ul className="text-blue-700 space-y-1">
+                <li className="cursor-pointer">Privacy Policy</li>
+                <li className="cursor-pointer">Terms & Conditions</li>
+                <li className="cursor-pointer">Disclaimer</li>
+              </ul>
             </div>
-            <div className="space-y-1">
-              <div className="text-zinc-800">Quick Links</div>
-              <div className="text-blue-700 cursor-pointer">Home</div>
-              <div className="text-blue-700 cursor-pointer">Features</div>
-              <div className="text-blue-700 cursor-pointer">Contact us</div>
-              <div className="text-blue-700 cursor-pointer">About us</div>
+            <div>
+              <h4 className="text-zinc-800 font-semibold">Quick Links</h4>
+              <ul className="text-blue-700 space-y-1">
+                <li className="cursor-pointer">Home</li>
+                <li className="cursor-pointer">Features</li>
+                <li className="cursor-pointer">Contact Us</li>
+                <li className="cursor-pointer">About Us</li>
+              </ul>
             </div>
-            <div className="space-y-1">
-              <div className="text-zinc-800">Follow us</div>
-              <div className="text-blue-700 cursor-pointer">Facebook</div>
-              <div className="text-blue-700 cursor-pointer">Instagram</div>
-
+            <div>
+              <h4 className="text-zinc-800 font-semibold">Follow Us</h4>
+              <ul className="text-blue-700 space-y-1">
+                <li className="cursor-pointer">Facebook</li>
+                <li className="cursor-pointer">Instagram</li>
+              </ul>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* Signup Modal */}
-      <SignupModal
-        showSignup={showSignup}
-        onClose={() => setShowSignup(false)}
-      />
+      {/* Modal */}
+      <SignupModal showSignup={showSignup} onClose={() => setShowSignup(false)} />
     </section>
   );
 }

@@ -1,102 +1,104 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SignupModal from "./SignupModal";
 import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
-export default function Nav() {
+export default function Nav({ toggleSidebar, setNavHeight }) {
   const [showSignup, setShowSignup] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false); 
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const toggleSignupModal = () => {
-    setShowSignup(!showSignup);
-  };
-  
-  const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu); // New function
-  };
+  const toggleSignupModal = () => setShowSignup(!showSignup);
+  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof setNavHeight === 'function') {
+      const navEl = document.getElementById('main-nav');
+      if (navEl) {
+        setNavHeight(navEl.offsetHeight);
+      }
+    }
+  }, [setNavHeight]);
 
   return (
     <header>
-      <nav className="w-full h-40 flex justify-around my-10">
-        <div className="space-x-10 flex ml-4">
+      <nav id="main-nav" className="w-full h-20 flex justify-between items-center px-6 shadow-md bg-white fixed top-0 z-50">
+        {/* Left: Logo + Desktop Nav */}
+        <div className="flex items-center space-x-6">
           <span
             style={{ fontFamily: '"CrimsonText"' }}
-            className="lg:text-2xl font-bold md:text-3xl sm:text-4xl max-sm:text-4xl"
+            className="text-2xl font-bold"
           >
             ASKYUREXPERT
           </span>
-          <div className="hidden lg:flex space-x-8">
-          <span className="cursor-pointer text-lg">Partners</span>
-          <span className="cursor-pointer text-lg">Blogs</span>
-          <span className="cursor-pointer text-lg">FAQs</span>
+          <div className="hidden lg:flex space-x-6">
+            <span className="cursor-pointer text-lg">Partners</span>
+            <span className="cursor-pointer text-lg"><a href="http://localhost:3000/blogs">Blogs</a></span>
+            <span className="cursor-pointer text-lg">FAQs</span>
+          </div>
         </div>
-        </div>
-        <div className="w-[280px] h-5"></div>
-        <div className="space-x-6 flex my-[-4px]">
+
+        {/* Right: Search, Auth, Mobile Icons */}
+        <div className="flex items-center space-x-4">
+          {/* Search */}
           <div className="hidden lg:block">
-            <svg xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="#212529"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#212529" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16a6.471 6.471 0 004.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+            </svg>
           </div>
 
+          {/* Auth */}
           <SignedOut>
-            <div className="space-x-4 flex">
-              <div className="hidden md:block">
-                <button
-                  className="text-white border-0 rounded-lg px-5 py-1 text-center text-lg"
-                  style={{ backgroundColor: "#2614EF" }}
-                  onClick={toggleSignupModal}
-                >
-                  Login / Register
-                </button>
-              </div>
-            </div>
+            <button
+              className="hidden md:block text-white bg-[#2614EF] rounded-lg px-5 py-1 text-lg"
+              onClick={toggleSignupModal}
+            >
+              Login / Register
+            </button>
           </SignedOut>
+
           <SignedIn>
-            <div className="space-x-4 flex">
-              <div className="hidden lg:block">
-                <UserButton
-                  appearance={{
-                    elements: {
-                      userButtonPopoverFooter: {
-                        display: "none",
-                      },
-                      userButtonPopoverCard: {
-                        width: "220px",
-                      }
-                    },
-                  }}
-                />
-              </div>
+            <div className="hidden lg:block">
+              <UserButton
+                appearance={{
+                  elements: {
+                    userButtonPopoverFooter: { display: "none" },
+                    userButtonPopoverCard: { width: "220px" }
+                  },
+                }}
+              />
             </div>
           </SignedIn>
 
-          <div className="hidden lg:block">
-            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#212529"><path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm0-160Z"/></svg>
-          </div>
-          <div className="md:hidden lg:hidden"  onClick={toggleMobileMenu}>
-            <svg xmlns="http://www.w3.org/2000/svg" height="45px" viewBox="0 -960 960 960" width="45px" fill="#212529"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+          {/* Mobile: Sidebar + Menu */}
+          <div className="lg:hidden flex items-center space-x-4">
+            <button onClick={toggleSidebar}>
+              <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#212529" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#212529" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </nav>
 
+      {/* Mobile Dropdown */}
       {showMobileMenu && (
-  <div className="absolute top-28 right-4 bg-white shadow-lg rounded-lg z-50 p-4 space-y-4 w-52">
-    <span className="block cursor-pointer text-lg">Partners</span>
-    <span className="block cursor-pointer text-lg">Blog</span>
-    <span className="block cursor-pointer text-lg">FAQs</span>
-    <span
-      className="block cursor-pointer text-lg"
-      onClick={toggleSignupModal}
-    >
-      Login / Signup
-    </span>
-  </div>
-)}
+        <div className="absolute top-20 right-4 bg-white shadow-lg rounded-lg z-50 p-4 space-y-4 w-52">
+          <span className="block cursor-pointer text-lg">Partners</span>
+          <span className="block cursor-pointer text-lg">Blog</span>
+          <span className="block cursor-pointer text-lg">FAQs</span>
+          <span className="block cursor-pointer text-lg" onClick={toggleSignupModal}>
+            Login / Signup
+          </span>
+        </div>
+      )}
 
       {/* Signup Modal */}
-      <SignupModal
-        showSignup={showSignup}
-        onClose={() => setShowSignup(false)}
-      />
+      <SignupModal showSignup={showSignup} onClose={() => setShowSignup(false)} />
     </header>
   );
 }
