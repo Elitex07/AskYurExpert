@@ -1,25 +1,21 @@
-import React from 'react';
+import { currentUser } from "@clerk/nextjs/server";
+import Cus from "../classes/customer";
+import DashboardPage from "./Dashboard";
 
-export default function DashboardPage() {
-  return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Welcome to the Dashboard</h2>
-      
-      {/* Example of cards or widgets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white shadow-lg p-4 rounded-lg">
-          <h3 className="text-lg font-semibold">Recent Activity</h3>
-          <p className="mt-2 text-gray-600">Here are the latest updates and notifications.</p>
-        </div>
-        <div className="bg-white shadow-lg p-4 rounded-lg">
-          <h3 className="text-lg font-semibold">User Stats</h3>
-          <p className="mt-2 text-gray-600">Quick overview of user activity and performance.</p>
-        </div>
-        <div className="bg-white shadow-lg p-4 rounded-lg">
-          <h3 className="text-lg font-semibold">System Status</h3>
-          <p className="mt-2 text-gray-600">Track server and system performance in real-time.</p>
-        </div>
-      </div>
-    </div>
-  );
+export default async function Dashboard() {
+  const user = await currentUser();
+  const data = [
+    { id: 1, name: "John Doe", role: "Admin", createdAt: "2023-01-01", panNumber: "ABCDE1234F", status: "Active" },
+    { id: 2, name: "Jane Smith", role: "User", createdAt: "2023-02-15", panNumber: "XYZ9876543", status: "Suspended" },
+    { id: 3, name: "Alice Johnson", role: "Moderator", createdAt: "2023-03-10", panNumber: "", status: "Inactive" },
+  ];
+
+  let userFromDb = new Cus(user);
+  await userFromDb.init();
+
+  const compressUser = {
+    publicMetadata: user.publicMetadata
+  }
+
+  return <DashboardPage user={compressUser} data={data} />;
 }
