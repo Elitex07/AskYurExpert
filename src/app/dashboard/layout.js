@@ -3,11 +3,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/nav';
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
+import { useUser } from '@clerk/nextjs';
 
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [navHeight, setNavHeight] = useState(80); // default fallback
   const navRef = useRef(null);
+  const { user } = useUser();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -41,7 +43,7 @@ export default function DashboardLayout({ children }) {
         {/* Main Content */}
         <div className="flex-1 ml-0">
           <div className="p-4">
-            <Header />
+            <Header avatarurl={user && user.imageUrl}/>
             <main className="mt-4">{children}</main>
           </div>
         </div>
