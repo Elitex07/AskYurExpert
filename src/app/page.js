@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Nav from "./components/nav";
 import SignupModal from "./components/SignupModal";
+import Image from "next/image";
 
 export default function Home() {
   const [showSignup, setShowSignup] = useState(false);
@@ -111,7 +112,7 @@ export default function Home() {
             },
           ].map((item, i) => (
             <div key={i} className="text-center w-48">
-              <img src={item.img} alt={`stat-${i}`} className="mx-auto mb-2" />
+              <Image src={item.img} alt={`stat-${i}`} className="mx-auto mb-2" height={48} width={48}/>
               {item.text.map((line, j) => (
                 <p key={j}>{line}</p>
               ))}
@@ -145,11 +146,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden md:block w-full md:w-1/2">
-            <img
-              src="https://www.assetplus.in/assets/drawables/howitworks@2x.png"
-              alt="how-it-works"
-              className="w-full max-w-md mx-auto"
-            />
+            <Image src="https://www.assetplus.in/assets/drawables/howitworks@2x.png" alt="how-it-works" height={480} width={480}/>
           </div>
         </section>
 
@@ -162,11 +159,7 @@ export default function Home() {
             </p>
           </div>
           <div className="hidden md:block w-full md:w-1/2">
-            <img
-              src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png"
-              alt="platform"
-              className="w-full max-w-md mx-auto"
-            />
+            <Image src="https://personalfinancelab.com/wp-content/uploads/distracting-students-grab-attention.png" alt="platform" height={480} width={480}/>
           </div>
         </section>
 
