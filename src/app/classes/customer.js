@@ -19,6 +19,7 @@ class Cus {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
             }
         }).then(res => res.json());
     }
@@ -30,16 +31,20 @@ class Cus {
      * @param {String} name 
      * @returns Customer
      */
-    async create(clerkId, email, name) {
+    async create(clerkId, email, name, panNumber, status = 'unverified') {
         return fetch(`${Configs.API_URL}/customers`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': `${Configs.API_HOST}`,
             },
             body: JSON.stringify({
                 clerkId,
                 email,
-                name
+                name,
+                createdAt: new Date().toISOString(),
+                panNumber,
+                status
             })
         }).then(res => res.json());
     }
