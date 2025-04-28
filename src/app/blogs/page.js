@@ -157,7 +157,7 @@ export default function Blogs() {
               {/* Delete Button */}
               <button
                 onClick={() => handleDeleteBlog(post.id)}
-                className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-lg shadow-md hover:bg-red-600 transition duration-300 opacity-0 group-hover:opacity-100"
+                className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-lg shadow-md hover:bg-red-600 transition duration-300 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100"
               >
                 Delete
               </button>
